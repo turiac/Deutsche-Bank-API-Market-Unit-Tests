@@ -13,7 +13,7 @@ import java.util.List;
 public class OrderController {
     private final OrderService orderService;
 
-    @PutMapping("/{id}")
+    @PostMapping("/{id}")
     public void placeOrder(@PathVariable Long id) {
         orderService.placeOrder(id);
     }

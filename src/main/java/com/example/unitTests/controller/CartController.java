@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/cart")
 public class CartController {
     @Autowired
-    CartService cartService;
+    private final CartService cartService;
 
     @PutMapping("/create")
     public void createCart(@RequestBody Cart cart) {
@@ -34,7 +34,7 @@ public class CartController {
         cartService.emptyCart(id);
     }
 
-    @PutMapping("/add/{id}")
+    @PostMapping("/add/{id}")
     public void addProduct(@PathVariable Long id, @RequestBody Product product) {
         cartService.addProduct(id, product);
     }

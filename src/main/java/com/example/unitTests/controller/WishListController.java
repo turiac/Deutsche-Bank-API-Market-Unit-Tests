@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/wishlist")
 public class WishListController {
     @Autowired
-    WishListService wishListService;
+    private final WishListService wishListService;
 
     @PutMapping("/create")
     public void createWishList(@RequestBody WishList wishList) {
@@ -34,7 +34,7 @@ public class WishListController {
         wishListService.emptyWishList(id);
     }
 
-    @PutMapping("/add/{id}")
+    @PostMapping("/add/{id}")
     public void addProduct(@PathVariable Long id, @RequestBody Product product) {
         wishListService.addProduct(id, product);
     }
