@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/cart")
 public class CartController {
-    @Autowired
     private final CartService cartService;
 
     @PutMapping("/create")
@@ -35,7 +34,7 @@ public class CartController {
     }
 
     @PostMapping("/add/{id}")
-    public void addProduct(@PathVariable Long id, @RequestBody Product product) {
-        cartService.addProduct(id, product);
+    public Cart addProduct(@PathVariable Long id, @RequestBody Product product) {
+        return cartService.addProduct(id, product);
     }
 }
